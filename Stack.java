@@ -1,4 +1,3 @@
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Stack {
@@ -7,7 +6,6 @@ public class Stack {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        PrintWriter pw = new PrintWriter(System.out);
         int a, b;
         while (sc.hasNext()) {
             String stock = sc.next();

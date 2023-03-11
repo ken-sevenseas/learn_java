@@ -21,6 +21,7 @@ public class LinkedList {
             }
         }
         list.printList();
+        sc.close();
     }
 }
 
