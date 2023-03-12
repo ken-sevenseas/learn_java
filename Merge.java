@@ -32,7 +32,7 @@ public class Merge {
     public static void merge(int[] A, int n, int left, int mid, int right) {
         int n1 = mid - left;
         int n2 = right - mid;
-        L = new int[n / 2 + 2];
+        L = new int[n / 2 + 2];// 私的理解:番兵をおくための配列と、nが偶数じゃない時に切り捨てられて溢れないようにするために2足す。
         R = new int[n / 2 + 2];
         for (int i = 0; i < n1; i++) {
             L[i] = A[left + i];
