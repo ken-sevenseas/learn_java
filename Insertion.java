@@ -31,8 +31,8 @@ class Insertion {
             int j = i - 1;
             while (j >= 0 && value < num.get(j)) {
                 num.set(j + 1, num.get(j));
+                num.set(j, value);
                 j--;
-                num.set(j + 1, value);
             }
             printArr(num);
         }
