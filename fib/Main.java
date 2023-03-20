@@ -1,4 +1,4 @@
-package part2.page252;
+package fib;
 
 import java.util.Scanner;
 
@@ -7,7 +7,7 @@ public class Main {
         final Scanner sc = new Scanner(System.in);
         final int n = Integer.parseInt(sc.next());
 
-//        final Fib ffib= ForFib.create(n);
+        // final Fib ffib= ForFib.create(n);
         final Fib rfib = RecursionFib.create(n);
         System.out.println(rfib.compute());
     }

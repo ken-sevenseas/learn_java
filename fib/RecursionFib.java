@@ -1,4 +1,4 @@
-package part2.page252;
+package fib;
 
 public class RecursionFib implements Fib {
     private final int end;
@@ -7,8 +7,10 @@ public class RecursionFib implements Fib {
     public static final int MAX_INPUT = 44;
 
     private int computeFibOf(int n) {
-        if (n == 0 || n == 1) return 1;
-        if (dp[n] != null) return dp[n];
+        if (n == 0 || n == 1)
+            return 1;
+        if (dp[n] != null)
+            return dp[n];
         dp[n] = computeFibOf(n - 1) + computeFibOf(n - 2);
         return dp[n];
     }

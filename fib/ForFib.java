@@ -1,4 +1,4 @@
-package part2.page252;
+package fib;
 
 public class ForFib implements Fib {
     private final int end;
@@ -17,7 +17,8 @@ public class ForFib implements Fib {
 
     public int compute() {
         F[0] = 1;
-        if (end == 0) return 1;
+        if (end == 0)
+            return 1;
 
         F[1] = 1;
         for (int i = 0; i < end - 1; i++) {

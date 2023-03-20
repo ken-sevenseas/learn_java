@@ -1,4 +1,4 @@
-package part2.page252;
+package fib;
 
 public interface Fib {
     int compute();
