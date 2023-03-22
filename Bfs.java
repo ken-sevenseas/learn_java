@@ -1,52 +1,52 @@
 import java.io.PrintWriter;
+import java.util.ArrayDeque;
 import java.util.Scanner;
 
 public class Bfs {
 
     static int N;
+    static final int INFTY = 2000000000;
     static final int WHITE = 0;
     static final int GRAY = 1;
     static final int BLACK = 2;
 
     static int[][] matrix;
-    static int[] color, discover, complete;
-    static int count;
+    static int[] distance;// 距離で訪問状態を管理
 
-    public static void dfs() {
+    public static void bfs(int vertex) {
         PrintWriter pw = new PrintWriter(System.out);
+        ArrayDeque<Integer> dq = new ArrayDeque<>();
 
-        count = 0;
+        dq.addLast(vertex);
+        for (int i = 0; i < N; i++) {
+            distance[i] = INFTY;
+        }
+        distance[vertex] = 0;
 
-        for (int vertex = 0; vertex < N; vertex++) {
-            if (color[vertex] == WHITE) {
-                dfsVisit(vertex);
+        int u;
+        while (!dq.isEmpty()) {
+            u = dq.pollFirst();
+            for (int v = 0; v < N; v++) {
+                if (matrix[u][v] == 0) {
+                    continue;
+                }
+                if (distance[v] != INFTY) {
+                    continue;
+                }
+                distance[v] = distance[u] + 1;
+                dq.addLast(v);
             }
         }
-        for (int vertex = 0; vertex < N; vertex++) {
-            pw.print(vertex + 1);
+        for (int i = 0; i < N; i++) {
+            pw.print(i + 1);
             pw.print(" ");
-            pw.print(discover[vertex]);
-            pw.print(" ");
-            pw.println(complete[vertex]);
+            if (distance[i] != INFTY) {
+                pw.println(distance[i]);
+            } else {
+                pw.println(-1);
+            }
         }
         pw.flush();
-    }
-
-    public static void dfsVisit(int vertex) {
-        color[vertex] = GRAY;
-        discover[vertex] = ++count;
-
-        for (int i = 0; i < N; i++) {
-            if (matrix[vertex][i] == 0) {
-                continue;
-            }
-            if (color[i] == WHITE) {
-                dfsVisit(i);
-            }
-        }
-
-        color[vertex] = BLACK;
-        complete[vertex] = ++count;
     }
 
     public static void main(String[] args) {
@@ -56,9 +56,7 @@ public class Bfs {
 
         N = Integer.parseInt(sc.next());
         matrix = new int[N][N];
-        discover = new int[N];
-        complete = new int[N];
-        color = new int[N];
+        distance = new int[N];
 
         for (int i = 0; i < N; i++) {
             vertex = Integer.parseInt(sc.next());
@@ -71,7 +69,7 @@ public class Bfs {
                 matrix[vertex][deg] = 1;
             }
         }
-        dfs();
+        bfs(0);
         sc.close();
     }
 }
