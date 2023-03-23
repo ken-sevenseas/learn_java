@@ -89,8 +89,3 @@ public class BinarySearchTree2 {
         preParse(node.right);
     }
 }
-
-class Bnode {
-    int key;
-    Bnode right, left, parent;
-}

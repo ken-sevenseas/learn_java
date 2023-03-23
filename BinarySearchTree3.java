@@ -147,7 +147,4 @@ public class BinarySearchTree3 {
     }
 }
 
-class Bnode {
-    int key;
-    Bnode right, left, parent;
-}
+
