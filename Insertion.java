@@ -27,14 +27,15 @@ class Insertion {
 
     static void sort(List<Integer> num) {
         for (int i = 1; i < num.size(); i++) {
-            int value = num.get(i);
-            int j = i - 1;
-            while (j >= 0 && value < num.get(j)) {
-                num.set(j + 1, num.get(j));
-                num.set(j, value);
-                j--;
+            for (int j = i; j > 0; j--) {
+                if (num.get(j) < num.get(j - 1)) {
+                    int temp = num.get(j);
+                    num.set(j, num.get(j - 1));
+                    num.set(j - 1, temp);
+                }
             }
             printArr(num);
         }
     }
 }
+//Judge: 5/5	JAVA	CPU: 00:28 sec	Memory: 73248 KB	Length: 1102 B	2023-03-24 19:34
