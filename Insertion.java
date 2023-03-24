@@ -38,3 +38,4 @@ class Insertion {
         }
     }
 }
+//Judge: 5/5	JAVA	CPU: 00:28 sec	Memory: 73248 KB	Length: 1102 B	2023-03-24 19:34
