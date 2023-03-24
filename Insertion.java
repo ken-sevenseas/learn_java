@@ -27,12 +27,12 @@ class Insertion {
 
     static void sort(List<Integer> num) {
         for (int i = 1; i < num.size(); i++) {
-            int value = num.get(i);
-            int j = i - 1;
-            while (j >= 0 && value < num.get(j)) {
-                num.set(j + 1, num.get(j));
-                num.set(j, value);
-                j--;
+            for (int j = i; j > 0; j--) {
+                if (num.get(j) < num.get(j - 1)) {
+                    int temp = num.get(j);
+                    num.set(j, num.get(j - 1));
+                    num.set(j - 1, temp);
+                }
             }
             printArr(num);
         }
