@@ -10,6 +10,7 @@ class Solution {
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
 
+            //自分のことはmapに格納していないため、iとの比較は必要ない。
             if (map.containsKey(complement)) {
                 return new int[]{map.get(complement), i};
             }
